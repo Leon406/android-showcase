@@ -17,7 +17,7 @@ android {
         applicationId = AndroidConfig.ID
         minSdkVersion(AndroidConfig.MIN_SDK_VERSION)
         targetSdkVersion(AndroidConfig.TARGET_SDK_VERSION)
-        buildToolsVersion(AndroidConfig.BUILD_TOOLS_VERSION)
+//        buildToolsVersion(AndroidConfig.BUILD_TOOLS_VERSION)
 
         versionCode = AndroidConfig.VERSION_CODE
         versionName = AndroidConfig.VERSION_NAME
@@ -62,6 +62,12 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        //see https://youtrack.jetbrains.com/issue/IDEA-234034
+        freeCompilerArgs += listOf( "-Xjvm-default=enable")
     }
 }
 
